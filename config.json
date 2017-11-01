@@ -1,8 +1,8 @@
 {
     "token":"yybtsb",
-    "appID":"wx65abeb386a017265",
-    "appScrect":"2c5c8bf71dbaa431679d146f03b521ba",
-    "encodingAESKey":"ll1yfM1xb6TH9W5ohpibWLFP10xI5DO6gbqzBh1nc47",
+    "appID":"wxd8a6b33b2182b04a",
+    "appScrect":"8c923a32cc10357e3da6e4415487b4ab",
+    "encodingAESKey":"afPsLj0rV0yGBtZRyWpGWTGFgsrvI40XBCZrnwUURFk",
     "apiDomain":"https://api.weixin.qq.com/",
     "apiURL":{
         "accessTokenApi":"%scgi-bin/token?grant_type=client_credential&appid=%s&secret=%s",
