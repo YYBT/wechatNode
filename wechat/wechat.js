@@ -331,7 +331,6 @@ WeChat.prototype.handleMsg = function(req,res){
                             var arr=str.match(re);
                             if (arr.length > 0){
                                 reportMsg = msg.txtMsg(fromUser,toUser,'如果要绑定主播，请复制链接到小程序打开');
-                                reportMsg = msg.txtMsg(fromUser,toUser,arr[0]);
                             }else{
                                 reportMsg = msg.txtMsg(fromUser,toUser,'没有这个选项哦');
                             }
