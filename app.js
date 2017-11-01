@@ -1,7 +1,7 @@
 const express = require('express'), //express 框架 
       wechat  = require('./wechat/wechat'), 
-       config = require('./config');//引入配置文件
-       bodyParser = require('body-parser')
+      config = require('./config');//引入配置文件
+      bodyParser = require('body-parser')
 
 var app = express();//实例express框架
 

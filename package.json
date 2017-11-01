@@ -15,12 +15,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SilenceHVK/wechatByNode.git"
+    "url": ""
   },
-  "author": "H-VK",
-  "license": "ISC",
+  "author": "",
+  "license": "",
   "bugs": {
-    "url": "https://github.com/SilenceHVK/wechatByNode/issues"
+    "url": ""
   },
-  "homepage": "https://github.com/SilenceHVK/wechatByNode#readme"
+  "homepage": ""
 }

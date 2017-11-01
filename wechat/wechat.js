@@ -323,17 +323,24 @@ WeChat.prototype.handleMsg = function(req,res){
                         break;
                     }
                 }else{
+
                      //判断消息类型为 文本消息
                     if(result.MsgType.toLowerCase() === "text"){
-                        //根据消息内容返回消息信息
-                        switch(result.Content){
-                            case 'yybt':
-                                reportMsg = msg.txtMsg(fromUser,toUser,'Hello ！我叫yybt');
-                            break;
-                            default:
-                                reportMsg = msg.txtMsg(fromUser,toUser,'没有这个选项哦');
-                            break;
+                        if(result.Content.indexOf("手淘") >= 0){
+                            reportMsg = msg.txtMsg(fromUser,toUser,'如果要绑定主播，请复制链接到小程序打开');
+                        }else{
+                            //根据消息内容返回消息信息
+                            switch(result.Content){
+                                case 'yybt':
+                                    reportMsg = msg.txtMsg(fromUser,toUser,'Hello ！我叫yybt');
+                                    break;
+                                default:
+                                    reportMsg = msg.txtMsg(fromUser,toUser,'没有这个选项哦');
+                                    break;
+                            }
                         }
+
+                        
                     }
                 }
                 //判断消息加解密方式，如果未加密则使用明文，对明文消息进行加密
