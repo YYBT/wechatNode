@@ -328,9 +328,10 @@ WeChat.prototype.handleMsg = function(req,res){
                     if(result.MsgType.toLowerCase() === "text"){
                         if(result.Content.indexOf("手淘") >= 0){
                             var re="((http|https)://)(([a-zA-Z0-9\._-]+\.[a-zA-Z]{2,6})|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,4})*(/[a-zA-Z0-9\&%_\./-~-]*)?"; 
-                            var arr=str.match(re);
+                            var arr=result.Content.match(re);
                             if (arr.length > 0){
                                 reportMsg = msg.txtMsg(fromUser,toUser,'如果要绑定主播，请复制链接到小程序打开');
+                                reportMsg = msg.txtMsg(fromUser,toUser,arr[0]);
                             }else{
                                 reportMsg = msg.txtMsg(fromUser,toUser,'没有这个选项哦');
                             }
