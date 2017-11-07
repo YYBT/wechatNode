@@ -54,4 +54,4 @@ app.get('/createMenus',function(req,res){
 });
 
 //监听3000端口
-app.listen(80);
+app.listen(8222);
