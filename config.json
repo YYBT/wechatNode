@@ -7,6 +7,7 @@
     "apiURL":{
         "accessTokenApi":"%scgi-bin/token?grant_type=client_credential&appid=%s&secret=%s",
         "createMenu":"%scgi-bin/menu/create?access_token=%s",
-        "sendMsgApi":"%scgi-bin/message/template/send?access_token=%s"
+        "sendMsgApi":"%scgi-bin/message/template/send?access_token=%s",
+        "getticketApi":"%scgi-bin/ticket/getticket?type=jsapi&access_token=%s"
     }
 }

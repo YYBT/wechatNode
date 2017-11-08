@@ -179,7 +179,7 @@ WeChat.prototype.getticket = function(){
             //获取当前时间 
             var currentTime = new Date().getTime();
             //格式化请求地址
-            var url = util.format(that.apiURL.getticket,that.apiDomain,data);
+            var url = util.format(that.apiURL.getticketApi,that.apiDomain,data);
             console.log("url:"+url); 
             //判断 本地存储的 ticket 是否有效
             if(jsapitickt.ticket === "" || jsapitickt.expires_in < currentTime){
