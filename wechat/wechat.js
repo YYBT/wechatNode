@@ -144,7 +144,7 @@ WeChat.prototype.automsgconfig = function(req,res){
     console.log("aaaaa"+autoMsg);
     console.log("jjj"+body);
     console.log("jjj"+JSON.stringify(body));
-    autoMsg = JSON.stringify(body);
+    autoMsg = body;
 
     console.log("aaaaa"+autoMsg);
 
