@@ -6,7 +6,7 @@ const crypto = require('crypto'), //引入加密模块
           fs = require('fs'), //引入 fs 模块
       urltil = require('url'),//引入 url 模块
 accessTokenJson = require('./access_token'), //引入本地存储的 access_token
-jsapitickt = require('./jsapi_tickt'), //引入本地存储的 access_token
+// jsapitickt = require('./jsapi_tickt'), //引入本地存储的 access_token
       menus  = require('./menus'), //引入微信菜单配置
  parseString = require('xml2js').parseString,//引入xml2js包
          msg = require('./msg'),//引入消息处理模块
@@ -169,38 +169,38 @@ WeChat.prototype.getAccessToken = function(){
 /**
  * 获取微信 getticket
  */
-WeChat.prototype.getticket = function(){
-    var that = this;
-    return new Promise(function(resolve,reject){
-        that.getAccessToken().then(function(data){
-                    //获取当前时间 
-        var currentTime = new Date().getTime();
-        //格式化请求地址
-        var url = util.format(that.apiURL.getticket,that.apiDomain,data);
-        //判断 本地存储的 ticket 是否有效
-        if(jsapitickt.ticket === "" || jsapitickt.expires_in < currentTime){
-            that.requestGet(url).then(function(data){
-                var result = JSON.parse(data); 
-                if(data.indexOf("errcode") < 0){
-                    jsapitickt.ticket = result.ticket;
-                    jsapitickt.expires_time = new Date().getTime() + (parseInt(result.expires_in) - 200) * 1000;
-                    //更新本地存储的
-                    fs.writeFile('./wechat/jsapi_tickt.json',JSON.stringify(jsapitickt));
-                    //将获取后的 ticket 返回
-                    resolve(jsapitickt.ticket);
-                }else{
-                    //将错误返回
-                    resolve(result);
-                } 
-            });
-        }else{
-            //将本地存储的 access_token 返回
-            resolve(jsapitickt.ticket);  
-        }
-    });
-        });
+// WeChat.prototype.getticket = function(){
+//     var that = this;
+//     return new Promise(function(resolve,reject){
+//         that.getAccessToken().then(function(data){
+//                     //获取当前时间 
+//         var currentTime = new Date().getTime();
+//         //格式化请求地址
+//         var url = util.format(that.apiURL.getticket,that.apiDomain,data);
+//         //判断 本地存储的 ticket 是否有效
+//         if(jsapitickt.ticket === "" || jsapitickt.expires_in < currentTime){
+//             that.requestGet(url).then(function(data){
+//                 var result = JSON.parse(data); 
+//                 if(data.indexOf("errcode") < 0){
+//                     jsapitickt.ticket = result.ticket;
+//                     jsapitickt.expires_time = new Date().getTime() + (parseInt(result.expires_in) - 200) * 1000;
+//                     //更新本地存储的
+//                     fs.writeFile('./wechat/jsapi_tickt.json',JSON.stringify(jsapitickt));
+//                     //将获取后的 ticket 返回
+//                     resolve(jsapitickt.ticket);
+//                 }else{
+//                     //将错误返回
+//                     resolve(result);
+//                 } 
+//             });
+//         }else{
+//             //将本地存储的 access_token 返回
+//             resolve(jsapitickt.ticket);  
+//         }
+//     });
+//         });
     
-}
+// }
 
 /**
  * 发消息
@@ -246,22 +246,22 @@ WeChat.prototype.getticket = function(){
 /**
  * wechatconfig
  */
-WeChat.prototype.wechatconfig = function(req,res){
-    var that = this;
-    var body = req.body;
-    return new Promise(function(resolve,reject){
-        that.getticket().then(function(data){
+// WeChat.prototype.wechatconfig = function(req,res){
+//     var that = this;
+//     var body = req.body;
+//     return new Promise(function(resolve,reject){
+//         that.getticket().then(function(data){
             
-            console.log("bodysb"+body); 
+//             console.log("bodysb"+body); 
             
-            var sign = sign('jsapi_ticket', 'http://example.com');
-            console.log("sign:"+sign); 
-            resolve(sign);
+//             var sign = sign('jsapi_ticket', 'http://example.com');
+//             console.log("sign:"+sign); 
+//             resolve(sign);
  
-        });
-    });
+//         });
+//     });
 
-}
+// }
 
 /**
  * 发消息
