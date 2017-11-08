@@ -139,10 +139,10 @@ WeChat.prototype.auth = function(req,res){
  * 自动回复 配置
  */
 WeChat.prototype.automsgconfig = function(req,res){
+    var that = this;
+    var body = req.body;
     return new Promise(function(resolve,reject){
-        var that = this;
-        var body = req.body;
-
+     
         fs.writeFile('./wechat/autoMsg.json',JSON.stringify(body));
 
         resolve(body);
