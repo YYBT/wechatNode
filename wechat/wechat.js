@@ -170,37 +170,40 @@ WeChat.prototype.getAccessToken = function(){
  * 获取微信 getticket
  */
 WeChat.prototype.getticket = function(){
+    console.log("getticket："); 
     var that = this;
     return new Promise(function(resolve,reject){
         that.getAccessToken().then(function(data){
-                    //获取当前时间 
-        var currentTime = new Date().getTime();
-        //格式化请求地址
-        var url = util.format(that.apiURL.getticket,that.apiDomain,data);
-        //判断 本地存储的 ticket 是否有效
-        if(jsapitickt.ticket === "" || jsapitickt.expires_in < currentTime){
-            that.requestGet(url).then(function(data){
-                var result = JSON.parse(data); 
-                console.log("getticket："+result); 
+            console.log("data："+data); 
 
-                if(data.indexOf("errcode") < 0){
-                    jsapitickt.ticket = result.ticket;
-                    jsapitickt.expires_time = new Date().getTime() + (parseInt(result.expires_in) - 200) * 1000;
-                    //更新本地存储的
-                    fs.writeFile('./wechat/jsapi_tickt.json',JSON.stringify(jsapitickt));
-                    //将获取后的 ticket 返回
-                    resolve(jsapitickt.ticket);
-                }else{
-                    //将错误返回
-                    resolve(result);
-                } 
-            });
-        }else{
-            //将本地存储的 access_token 返回
-            resolve(jsapitickt.ticket);  
-        }
-    });
+            // //获取当前时间 
+            // var currentTime = new Date().getTime();
+            // //格式化请求地址
+            // var url = util.format(that.apiURL.getticket,that.apiDomain,data);
+            // //判断 本地存储的 ticket 是否有效
+            // if(jsapitickt.ticket === "" || jsapitickt.expires_in < currentTime){
+            //     that.requestGet(url).then(function(data){
+            //         var result = JSON.parse(data); 
+            //         console.log("getticket："+result); 
+
+            //         if(data.indexOf("errcode") < 0){
+            //              jsapitickt.ticket = result.ticket;
+            //              jsapitickt.expires_time = new Date().getTime() + (parseInt(result.expires_in) - 200) * 1000;
+            //              //更新本地存储的
+            //               fs.writeFile('./wechat/jsapi_tickt.json',JSON.stringify(jsapitickt));
+            //                 //将获取后的 ticket 返回
+            //              resolve(jsapitickt.ticket);
+            //          }else{
+            //             //将错误返回
+            //              resolve(result);
+            //             } 
+            //           });
+            // }else{
+            //         //将本地存储的 access_token 返回
+            //         resolve(jsapitickt.ticket);  
+            // }
         });
+    });
     
 }
 
