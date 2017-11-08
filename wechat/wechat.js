@@ -12,6 +12,7 @@ jsapitickt = require('./jsapi_tickt'), //引入本地存储的 access_token
          msg = require('./msg'),//引入消息处理模块
 CryptoGraphy = require('./cryptoGraphy'); //微信消息加解密模块
 
+var sign = require('./sign.js');
 
 /**
  * 构建 WeChat 对象 即 js中 函数就是对象
