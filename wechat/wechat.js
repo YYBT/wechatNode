@@ -141,6 +141,7 @@ WeChat.prototype.auth = function(req,res){
 WeChat.prototype.automsgconfig = function(req,res){
     var that = this;
     var body = req.body;
+    console.log("aaaaa"+that.autoMsg);
     console.log("jjj"+body);
     console.log("jjj"+JSON.stringify(body));
     that.autoMsg = JSON.stringify(body);
