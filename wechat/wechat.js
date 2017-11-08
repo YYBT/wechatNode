@@ -185,7 +185,7 @@ WeChat.prototype.getticket = function(){
             if(jsapitickt.ticket === "" || jsapitickt.expires_in < currentTime){
                 that.requestGet(url).then(function(data){
                     var result = JSON.parse(data); 
-                    console.log("getticket："+stringify(result)); 
+                    console.log("getticket："+result.ticket); 
 
                     if(data.indexOf("errcode") < 0){
                          jsapitickt.ticket = result.ticket;
