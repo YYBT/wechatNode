@@ -170,22 +170,20 @@ WeChat.prototype.getAccessToken = function(){
  * 获取微信 getticket
  */
 WeChat.prototype.getticket = function(){
-    console.log("getticket："); 
+
     var that = this;
     return new Promise(function(resolve,reject){
         that.getAccessToken().then(function(data){
-            console.log("data："+data); 
 
             //获取当前时间 
             var currentTime = new Date().getTime();
             //格式化请求地址
             var url = util.format(that.apiURL.getticketApi,that.apiDomain,data);
-            console.log("url:"+url); 
+
             //判断 本地存储的 ticket 是否有效
             if(jsapitickt.ticket === "" || jsapitickt.expires_in < currentTime){
                 that.requestGet(url).then(function(data){
                     var result = JSON.parse(data); 
-                    console.log("getticket："+result.ticket); 
 
                     if(data.indexOf("errcode") < 0){
                          jsapitickt.ticket = result.ticket;
@@ -253,17 +251,13 @@ WeChat.prototype.getticket = function(){
  * wechatconfig
  */
 WeChat.prototype.wechatconfig = function(req,res){
-    console.log("wechatconfig"); 
 
     var that = this;
     var body = req.body;
     return new Promise(function(resolve,reject){
         that.getticket().then(function(data){
             
-            console.log("wechatconfig——bodysb"+body.url); 
-            
             var signvalue = sign('jsapi_ticket', body.url);
-            console.log("wechatconfig——sign:"+signvalue); 
             resolve(signvalue);
  
         });
@@ -280,14 +274,11 @@ WeChat.prototype.postSendMsg = function(req,res){
     return new Promise(function(resolve,reject){
         that.getAccessToken().then(function(data){
             
-            console.log("bodysb"+body); 
-            
             //格式化请求地址
             var url = util.format(that.apiURL.sendMsgApi,that.apiDomain,data);
-            console.log("url:"+url);         
+  
             that.requestPost(url,JSON.stringify(body)).then(function(data){
                 resolve(data);
-                console.log("data:"+data);  
             });
             // resolve(data);
         });

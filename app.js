@@ -55,7 +55,7 @@ app.get('/createMenus',function(req,res){
 
 //用于发消息 POST
 app.post('/wechatconfig',function(req,res){
-    console.log("wechatconfig"); 
+
         if (!req.body) return res.sendStatus(400);
    
         wechatApp.wechatconfig(req,res).then(function(data){
