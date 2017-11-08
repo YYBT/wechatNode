@@ -144,6 +144,9 @@ WeChat.prototype.automsgconfig = function(req,res){
     console.log("jjj"+body);
     console.log("jjj"+JSON.stringify(body));
     that.autoMsg = JSON.stringify(body);
+
+    console.log("aaaaa"+that.autoMsg);
+
     return new Promise(function(resolve,reject){
      
         fs.writeFile('./wechat/autoMsg.json',JSON.stringify(body));
