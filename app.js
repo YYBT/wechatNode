@@ -19,11 +19,13 @@ var wechatApp = new wechat(config); //实例wechat 模块
 
 //用于处理所有进入 3000 端口 get 的连接请求
 app.get('/',function(req,res){
+    console.log("app.get");
     wechatApp.auth(req,res);
 });
 
 //用于处理所有进入 3000 端口 post 的连接请求
 app.post('/',function(req,res){
+    console.log("app.post");
     wechatApp.handleMsg(req,res);
 });
 
