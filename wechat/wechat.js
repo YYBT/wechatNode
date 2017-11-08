@@ -262,9 +262,9 @@ WeChat.prototype.wechatconfig = function(req,res){
             
             console.log("wechatconfig——bodysb"+body); 
             
-            var sign = sign('jsapi_ticket', 'http://example.com');
-            console.log("wechatconfig——sign:"+sign); 
-            resolve(sign);
+            var signvalue = sign('jsapi_ticket', 'http://example.com');
+            console.log("wechatconfig——sign:"+signvalue); 
+            resolve(signvalue);
  
         });
     });
