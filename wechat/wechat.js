@@ -311,7 +311,7 @@ WeChat.prototype.createMenus = function(){
  */
 WeChat.prototype.handleMsg = function(req,res){
     var buffer = [],that = this;
-
+console.log("handleMsg");
     //实例微信消息加解密
     var cryptoGraphy = new CryptoGraphy(that.config,req);
 
