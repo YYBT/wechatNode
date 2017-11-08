@@ -249,6 +249,8 @@ WeChat.prototype.getticket = function(){
  * wechatconfig
  */
 WeChat.prototype.wechatconfig = function(req,res){
+    console.log("wechatconfig"); 
+
     var that = this;
     var body = req.body;
     return new Promise(function(resolve,reject){
