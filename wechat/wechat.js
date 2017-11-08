@@ -136,6 +136,19 @@ WeChat.prototype.auth = function(req,res){
 }
 
 /**
+ * 自动回复 配置
+ */
+WeChat.prototype.automsgconfig = function(req,res){
+    
+        var that = this;
+        var body = req.body;
+
+        fs.writeFile('./wechat/autoMsg.json',JSON.stringify(body));
+
+        resolve(abody);
+
+}
+/**
  * 获取微信 access_token
  */
 WeChat.prototype.getAccessToken = function(){

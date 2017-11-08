@@ -55,7 +55,7 @@ app.get('/createMenus',function(req,res){
         }); 
 });
 
-//用于发消息 POST
+//用于H5分享 POST
 app.post('/wechatconfig',function(req,res){
 
         if (!req.body) return res.sendStatus(400);
@@ -64,7 +64,18 @@ app.post('/wechatconfig',function(req,res){
             res.send(data);
         }); 
     
-     });
+});
+
+//用于自动回复 POST
+app.post('/automsgconfig',function(req,res){
+    
+            if (!req.body) return res.sendStatus(400);
+       
+            wechatApp.automsgconfig(req,res).then(function(data){
+                res.send(data);
+            }); 
+        
+    });
 
 //监听3000端口
 app.listen(8222);
