@@ -53,5 +53,16 @@ app.get('/createMenus',function(req,res){
         }); 
 });
 
+//用于发消息 POST
+app.post('/wechatconfig',function(req,res){
+    
+        if (!req.body) return res.sendStatus(400);
+    
+        wechatApp.wechatconfig(req,res).then(function(data){
+            res.send(data);
+        }); 
+    
+     });
+
 //监听3000端口
 app.listen(8222);
