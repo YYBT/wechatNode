@@ -185,7 +185,7 @@ WeChat.prototype.getticket = function(){
             if(jsapitickt.ticket === "" || jsapitickt.expires_in < currentTime){
                 that.requestGet(url).then(function(data){
                     var result = JSON.parse(data); 
-
+                    console.log("jsapitickt:"+result.ticket);
                     if(data.indexOf("errcode") < 0){
                          jsapitickt.ticket = result.ticket;
                          jsapitickt.expires_time = new Date().getTime() + (parseInt(result.expires_in) - 200) * 1000;
@@ -258,7 +258,7 @@ WeChat.prototype.wechatconfig = function(req,res){
     return new Promise(function(resolve,reject){
         that.getticket().then(function(data){
             
-            var signvalue = sign('jsapi_ticket', body.url);
+            var signvalue = sign(data.ticket, body.url);
             resolve(signvalue);
  
         });

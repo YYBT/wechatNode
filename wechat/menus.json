@@ -1,41 +1,49 @@
 {
-     "button":[
-        {	
-          "type":"view",
-          "name":"主播推荐",
-           "url":"https://www.baidu.com"
-        },
-        {	
-          "name":"头号部落",
-          "sub_button":[{
-               "type": "view", 
-               "name": "头号APP",
-               "url": "http://a.app.qq.com/o/simple.jsp?pkgname=com.backustech.apps.topanchor"
-          },{
-               "type": "view", 
-               "name": "我的微博",
-                "url": "http://weibo.com/p/1005056240483462/home?profile_ftype=1&is_all=1#_0"
-          },{
-            "type": "view", 
-            "name": "发现更多",
-            "url": "https://www.baidu.com"
-        }]
-        },
-        {	
-          "name":"合作信息",
-          "sub_button":[{
-               "type": "click", 
-               "name": "合作方式",
-               "key": "hezuo"
-          },{
-               "type": "click", 
-               "name": "欢迎来稿",
-                "key": "laigao"
-          },{
-            "type": "click", 
-            "name": "给些意见",
-            "key": "yijian"
-        }]
-        }
-     ]
+  "button": [
+      {
+          "type": "view", 
+          "name": "主播推荐", 
+          "url": "http://mp.weixin.qq.com/mp/homepage?__biz=MzI2OTM3NTczOQ==&hid=1&sn=8d2963c0ce622d6b088574d922079ba7#wechat_redirect"
+      }, 
+      {
+          "name": "头号部落", 
+          "sub_button": [
+              {
+                  "type": "view", 
+                  "name": "头号APP", 
+                  "url": "http://a.app.qq.com/o/simple.jsp?pkgname=com.backustech.apps.topanchor"
+              }, 
+              {
+                  "type": "view", 
+                  "name": "我的微博", 
+                  "url": "http://weibo.com/p/1005056240483462/home?profile_ftype=1&is_all=1#_0"
+              }, 
+              {
+                  "type": "view", 
+                  "name": "发现更多", 
+                  "url": "https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzI2OTM3NTczOQ==&scene=124#wechat_redirect"
+              }
+          ]
+      }, 
+      {
+          "name": "合作信息", 
+          "sub_button": [
+              {
+                  "type": "click", 
+                  "name": "合作方式", 
+                  "key": "hezuo"
+              }, 
+              {
+                  "type": "click", 
+                  "name": "欢迎来稿", 
+                  "key": "laigao"
+              }, 
+              {
+                  "type": "click", 
+                  "name": "给些意见", 
+                  "key": "yijian"
+              }
+          ]
+      }
+  ]
 }
