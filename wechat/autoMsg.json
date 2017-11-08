@@ -1,0 +1,19 @@
+[
+    {
+      "key": "yybt",
+      "type": "msg",
+      "content": "哈哈哈"
+    },
+    {
+      "key": "yybt1",
+      "type": "msgpic",
+      "content": [
+        {
+          "Title": "Title",
+          "Description": "撒地方是否是",
+          "PicUrl": "https://www.baidu.com/s?wd=qq&rsv_idx=2&tn=baiduhome_pg&usm=3&ie=utf-8&rsv_cq=微信公众平台&rsv_dl=0_right_recommends_merge_20826&euri=bc765ed791524ab3af8ba52f0f9a6762",
+          "Url": "https://mp.weixin.qq.com/debug/wxadoc/dev/component/web-view.html"
+        }
+      ]
+    }
+  ]

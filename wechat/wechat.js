@@ -11,6 +11,7 @@ jsapitickt = require('./jsapi_tickt'), //引入本地存储的 access_token
  parseString = require('xml2js').parseString,//引入xml2js包
          msg = require('./msg'),//引入消息处理模块
          sign  = require('./sign'),
+         autoMsg  = require('./autoMsg'),
 CryptoGraphy = require('./cryptoGraphy'); //微信消息加解密模块
 
 
@@ -392,14 +393,31 @@ console.log("handleMsg");
                             }
                         }else{
                             //根据消息内容返回消息信息
-                            switch(result.Content){
-                                case 'yybt':
-                                    reportMsg = msg.txtMsg(fromUser,toUser,'Hello ！我叫yybt');
-                                    break;
-                                default:
-                                    reportMsg = msg.txtMsg(fromUser,toUser,'没有这个选项哦');
-                                    break;
+                            // switch(result.Content){
+                            //     case 'yybt':
+                            //         reportMsg = msg.txtMsg(fromUser,toUser,'Hello ！我叫yybt');
+                            //         break;
+                            //     default:
+                            //         reportMsg = msg.txtMsg(fromUser,toUser,'没有这个选项哦');
+                            //         break;
+                            // }
+
+                            for(var i=0;i<autoMsg.length;i++){
+                                var msgobg = autoMsg[i];
+                                var key = msgobg["key"];
+                                var type = msgobg["type"];
+                                var content =  msgobg["content"];
+                                if(result.Content == key){
+                                    if(type == "msg"){
+                                        reportMsg = msg.txtMsg(fromUser,toUser,content);
+                                    }else if(type == "msgpic"){
+                                        reportMsg = msg.graphicMsg(fromUser,toUser,content);
+                                    }
+                                    continue;
+                                }
+
                             }
+
                         }
 
                         
