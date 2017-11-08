@@ -145,7 +145,7 @@ WeChat.prototype.automsgconfig = function(req,res){
 
         fs.writeFile('./wechat/autoMsg.json',JSON.stringify(body));
 
-        resolve(abody);
+        resolve(body);
 
 }
 /**
