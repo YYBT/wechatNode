@@ -14,7 +14,7 @@ jsapitickt = require('./jsapi_tickt'), //引入本地存储的 access_token
         
 CryptoGraphy = require('./cryptoGraphy'); //微信消息加解密模块
 
-var autoMsg  = require('./autoMsg'),
+var autoMsg  = require('./autoMsg');
 /**
  * 构建 WeChat 对象 即 js中 函数就是对象
  * @param {JSON} config 微信配置文件 
