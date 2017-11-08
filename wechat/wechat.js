@@ -340,10 +340,7 @@ WeChat.prototype.handleMsg = function(req,res){
                     switch(result.Event.toLowerCase()){
                         case 'subscribe':
                             //回复消息
-                            var content = "欢迎关注 XXX 公众号，一起斗图吧。回复以下数字：\n";
-                                content += "1.你是谁\n";
-                                content += "2.关于Node.js\n";
-                                content += "回复 “文章”  可以得到图文推送哦~\n";
+                            var content = "欢迎关注 头号主播 公众号\n";
                             reportMsg = msg.txtMsg(fromUser,toUser,content);
                         break;
                         case 'click':
@@ -352,22 +349,21 @@ WeChat.prototype.handleMsg = function(req,res){
                                 case 'hezuo':
                                     //回复消息
                                     var content = "合作请加微信：\n";
-                                    content += "121231232\n";
+                                    content += "lwq0930\n";
                                     content += "个人微信请勿打扰";
                                     reportMsg = msg.txtMsg(fromUser,toUser,content);
                                 break;
                                 case 'laigao':
                                     //回复消息
-                                    var content = "欢迎来稿\n";
-                                    content += "121231232\n";
-                                    content += "个人微信请勿打扰";
+                                    var content = "来稿方式：发送文章或视频至\n";
+                                    content += "zqb544158476@vip.qq.com\n";
+                                    content += "一经采用将有好礼相送哦！（我不会告诉你是某主播私密照的）";
                                     reportMsg = msg.txtMsg(fromUser,toUser,content);
                                break;
                                case 'yijian':
                                     //回复消息
-                                    var content = "给些意见：\n";
-                                    content += "121231232\n";
-                                    content += "个人微信请勿打扰";
+                                    var content = "可以在文章下留言评论\n";
+                                    content += "也可以直接发送消息至公众号/玫瑰\n";
                                     reportMsg = msg.txtMsg(fromUser,toUser,content);
                               break;
 

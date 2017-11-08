@@ -3,7 +3,7 @@
         {	
           "type":"view",
           "name":"主播推荐",
-           "url":"https://www.baidu.com"
+           "url":"http://mp.weixin.qq.com/mp/homepage?__biz=MzI2OTM3NTczOQ==&hid=1&sn=8d2963c0ce622d6b088574d922079ba7&scene=18#wechat_redirect"
         },
         {	
           "name":"头号部落",
@@ -18,7 +18,7 @@
           },{
             "type": "view", 
             "name": "发现更多",
-            "url": "https://www.baidu.com"
+            "url": "https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzI2OTM3NTczOQ==&scene=124#wechat_redirect"
         }]
         },
         {	
