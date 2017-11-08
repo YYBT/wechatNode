@@ -57,10 +57,10 @@ app.get('/createMenus',function(req,res){
 app.post('/wechatconfig',function(req,res){
     
         if (!req.body) return res.sendStatus(400);
-        res.send("data");
-        // wechatApp.wechatconfig(req,res).then(function(data){
-        //     res.send(data);
-        // }); 
+   
+        wechatApp.wechatconfig(req,res).then(function(data){
+            res.send(data);
+        }); 
     
      });
 
