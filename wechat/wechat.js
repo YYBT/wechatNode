@@ -362,7 +362,7 @@ console.log("handleMsg");
                     switch(result.Event.toLowerCase()){
                         case 'subscribe':
                             //回复消息
-                            var content = "直播这么久，为何TA这么火，而我不温不火？头号TOP给你提供各大平台直播数据分析，开启你的直播数据化时代！\n<a data-miniprogram-appid='wxe5f52902cf4de896'  data-miniprogram-path='pages/index/index' href=''>立即前往查看</a>";
+                            var content = "直播这么久，为何TA这么火，而我不温不火？头号TOP给你提供各大平台直播数据分析，开启你的直播数据化时代！\n<a data-miniprogram-appid='wxe5f52902cf4de896'  data-miniprogram-path='pages/index/index' href='http://www.baidu.com'>立即前往查看</a>";
                             reportMsg = msg.txtMsg(fromUser,toUser,content);
                         break;
                         case 'click':
@@ -371,7 +371,7 @@ console.log("handleMsg");
                                 case 'lianxi':
                                     //回复消息
                                     var content = "有任何意见反馈和合作意向的朋友，你可以通过以下邮箱尽情勾搭~\n";
-                                    content += "woshixuyiman@163.com\n";
+                                    content += "woshixuyiman@163.com\n<a data-miniprogram-appid='wxe5f52902cf4de896'  data-miniprogram-path='pages/index/index' href='http://www.baidu.com'>立即前往查看</a>";
                                     reportMsg = msg.txtMsg(fromUser,toUser,content);
                                 break;
                             }
