@@ -1,7 +1,7 @@
 {
   "button": [
       {
-          "type": "view", 
+          "type": "miniprogram", 
           "name": "查看直播数据", 
           "url": "http://mp.weixin.qq.com/mp/homepage?__biz=MzI2OTM3NTczOQ==&hid=1&sn=8d2963c0ce622d6b088574d922079ba7#wechat_redirect",
           "appid":"wx7f27de027a965d85",
