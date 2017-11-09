@@ -371,7 +371,7 @@ console.log("handleMsg");
                                 case 'lianxi':
                                     //回复消息
                                     var content = "有任何意见反馈和合作意向的朋友，你可以通过以下邮箱尽情勾搭~\n";
-                                    content += "woshixuyiman@163.com\n<p><a data-miniprogram-appid=\"wx123123123\" data-miniprogram-path=\"pages/index\" href=\"\">点击文字跳转小程序</a></p>";
+                                    content += "woshixuyiman@163.com\n<mp-miniprogram data-miniprogram-appid=\"wx123123123\" data-miniprogram-path=\"pages/index/index\" data-miniprogram-title=\"小程序示例\" data-progarm-imageurl=\"http://mmbizqbic.cn/demo.jpg\"></mp-miniprogram>";
                                     reportMsg = msg.txtMsg(fromUser,toUser,content);
                                 break;
                             }
