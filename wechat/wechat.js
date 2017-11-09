@@ -362,7 +362,7 @@ console.log("handleMsg");
                     switch(result.Event.toLowerCase()){
                         case 'subscribe':
                             //回复消息
-                            var content = "直播这么久，为何TA这么火，而我不温不火？头号TOP给你提供各大平台直播数据分析，开启你的直播数据化时代！\n<a data-miniprogram-appid='wxe5f52902cf4de896'  data-miniprogram-path='pages/index/index' href='http://www.baidu.com'>立即前往查看</a>";
+                            var content = "直播这么久，为何TA这么火，而我不温不火？头号TOP给你提供各大平台直播数据分析，开启你的直播数据化时代！\n<a href='http://www.baidu.com'>立即前往查看</a>";
                             reportMsg = msg.txtMsg(fromUser,toUser,content);
                         break;
                         case 'click':
@@ -371,7 +371,7 @@ console.log("handleMsg");
                                 case 'lianxi':
                                     //回复消息
                                     var content = "有任何意见反馈和合作意向的朋友，你可以通过以下邮箱尽情勾搭~\n";
-                                    content += "woshixuyiman@163.com\n<mp-miniprogram data-miniprogram-appid=\"wx123123123\" data-miniprogram-path=\"pages/index/index\" data-miniprogram-title=\"小程序示例\" data-progarm-imageurl=\"http://mmbizqbic.cn/demo.jpg\"></mp-miniprogram>";
+                                    content += "woshixuyiman@163.com\n";
                                     reportMsg = msg.txtMsg(fromUser,toUser,content);
                                 break;
                             }
@@ -406,6 +406,7 @@ console.log("handleMsg");
                             //         reportMsg = msg.txtMsg(fromUser,toUser,'没有这个选项哦');
                             //         break;
                             // }
+                            var flog = true;
 
                             for(var i=0;i<autoMsg.length;i++){
                                 var msgobg = autoMsg[i];
@@ -413,6 +414,7 @@ console.log("handleMsg");
                                 var type = msgobg["type"];
                                 var content =  msgobg["content"];
                                 if(result.Content == key){
+                                    flog = false;
                                     if(type == "msg"){
                                         reportMsg = msg.txtMsg(fromUser,toUser,content);
                                     }else if(type == "msgpic"){
@@ -421,6 +423,10 @@ console.log("handleMsg");
                                     continue;
                                 }
 
+                            }
+
+                            if(flog == true){
+                                reportMsg = msg.graphicMsg(fromUser,toUser,'回复达人直播平台和昵称可以直接查看TA的数据战报哦！\n1代表：淘宝平台\n回复示例：1冯提莫');
                             }
 
                         }
