@@ -426,7 +426,7 @@ console.log("handleMsg");
                             }
 
                             if(flog == true){
-                                reportMsg = msg.graphicMsg(fromUser,toUser,'回复达人直播平台和昵称可以直接查看TA的数据战报哦！\n1代表：淘宝平台\n回复示例：1冯提莫');
+                                reportMsg = msg.txtMsg(fromUser,toUser,'回复达人直播平台和昵称可以直接查看TA的数据战报哦！\n1代表：淘宝平台\n回复示例：1冯提莫');
                             }
 
                         }
