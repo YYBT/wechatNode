@@ -362,33 +362,18 @@ console.log("handleMsg");
                     switch(result.Event.toLowerCase()){
                         case 'subscribe':
                             //回复消息
-                            var content = "欢迎关注 头号主播 公众号\n";
+                            var content = "直播这么久，为何TA这么火，而我不温不火？头号TOP给你提供各大平台直播数据分析，开启你的直播数据化时代！\n<a class='weapp_text_link' data-miniprogram-appid='wxe5f52902cf4de896' data-miniprogram-path='pages/index/index' data-miniprogram-nickname='头号主播' href='javascript:void(0)';>立即前往查看</a>";
                             reportMsg = msg.txtMsg(fromUser,toUser,content);
                         break;
                         case 'click':
 
                             switch(result.EventKey.toLowerCase()){
-                                case 'hezuo':
+                                case 'lianxi':
                                     //回复消息
-                                    var content = "合作请加微信：\n";
-                                    content += "lwq0930\n";
-                                    content += "个人微信请勿打扰";
+                                    var content = "有任何意见反馈和合作意向的朋友，你可以通过以下邮箱尽情勾搭~\n";
+                                    content += "woshixuyiman@163.com\n";
                                     reportMsg = msg.txtMsg(fromUser,toUser,content);
                                 break;
-                                case 'laigao':
-                                    //回复消息
-                                    var content = "来稿方式：发送文章或视频至\n";
-                                    content += "zqb544158476@vip.qq.com\n";
-                                    content += "一经采用将有好礼相送哦！（我不会告诉你是某主播私密照的）";
-                                    reportMsg = msg.txtMsg(fromUser,toUser,content);
-                               break;
-                               case 'yijian':
-                                    //回复消息
-                                    var content = "可以在文章下留言评论\n";
-                                    content += "也可以直接发送消息至公众号/玫瑰\n";
-                                    reportMsg = msg.txtMsg(fromUser,toUser,content);
-                              break;
-
                             }
                             //  var contentArr = [
                             //     {Title:"Node.js 微信自定义菜单",Description:"使用Node.js实现自定义微信菜单",PicUrl:"http://img.blog.csdn.net/20170605162832842?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvaHZrQ29kZXI=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast",Url:"http://blog.csdn.net/hvkcoder/article/details/72868520"},
