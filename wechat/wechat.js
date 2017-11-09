@@ -362,7 +362,7 @@ console.log("handleMsg");
                     switch(result.Event.toLowerCase()){
                         case 'subscribe':
                             //回复消息
-                            var content = "直播这么久，为何TA这么火，而我不温不火？头号TOP给你提供各大平台直播数据分析，开启你的直播数据化时代！\n<p><a data-miniprogram-appid='wx7f27de027a965d85' data-miniprogram-path='pages/index/index' href=''>点击文字跳转小程序</a></p>";
+                            var content = "直播这么久，为何TA这么火，而我不温不火？头号TOP给你提供各大平台直播数据分析，开启你的直播数据化时代！\n<a data-miniprogram-appid='wx7f27de027a965d85' data-miniprogram-path='pages/index/index' href=''>点击文字跳转小程序</a>";
                             reportMsg = msg.txtMsg(fromUser,toUser,content);
                         break;
                         case 'click':
