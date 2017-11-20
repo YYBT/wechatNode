@@ -259,7 +259,7 @@ WeChat.prototype.gettaobaoid = function(url){
 
             console.log("taobao:"+data);
             var re="broadcasterId=(.*?)&"; 
-            var arr=result.Content.match(re); 
+            var arr=data.match(re); 
             console.log("re:"+arr);       
         });
    
