@@ -227,7 +227,7 @@ WeChat.prototype.getticket = function(){
  * 获取淘宝 主播id
  */
 WeChat.prototype.gettaobaoid = function(url){
-    
+    console.log("url:"+url);
     var that = this;
     return new Promise(function(resolve,reject){
     
