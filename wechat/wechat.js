@@ -251,13 +251,11 @@ WeChat.prototype.getticket = function(){
  * 获取淘宝 主播id
  */
 WeChat.prototype.gettaobaoid = function(url){
-    console.log("url:"+url);
+
     var that = this;
     return new Promise(function(resolve,reject){
     
         that.requesthttpGet(url).then(function(data){
-
-            console.log("taobao:"+data);
             var re="broadcasterId=(.*?)&"; 
             var arr=data.match(re); 
             console.log("re:"+arr);  
@@ -433,9 +431,7 @@ WeChat.prototype.handleMsg = function(req,res){
                             var re="((http|https)://)(([a-zA-Z0-9\._-]+\.[a-zA-Z]{2,6})|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,4})*(/[a-zA-Z0-9\&%_\./-~-]*)?"; 
                             var arr=result.Content.match(re);
                             if (arr != null){
-                                console.log("arr:"+arr);
                                 that.gettaobaoid(arr[0]).then(function(data){
-                                    console.log("data:"+data);
                                     reportMsg = msg.txtMsg(fromUser,toUser,'主播ID为:'+data);
                                         //判断消息加解密方式，如果未加密则使用明文，对明文消息进行加密
                                     reportMsg = req.query.encrypt_type == 'aes' ? cryptoGraphy.encryptMsg(reportMsg) : reportMsg ;
