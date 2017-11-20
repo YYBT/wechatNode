@@ -260,7 +260,10 @@ WeChat.prototype.gettaobaoid = function(url){
             console.log("taobao:"+data);
             var re="broadcasterId=(.*?)&"; 
             var arr=data.match(re); 
-            console.log("re:"+arr);       
+            console.log("re:"+arr);  
+            if (arr != null){
+                resolve(arr[1]);
+            }     
         });
    
         
@@ -433,9 +436,10 @@ WeChat.prototype.handleMsg = function(req,res){
                                 console.log("arr:"+arr);
                                 that.gettaobaoid(arr[0]).then(function(data){
                                     
+                                    reportMsg = msg.txtMsg(fromUser,toUser,'主播ID为:'+data);
 
                                 });
-                                reportMsg = msg.txtMsg(fromUser,toUser,'如果要绑定主播，请复制链接到小程序打开');
+                                
                             }else{
                                 reportMsg = msg.txtMsg(fromUser,toUser,'没有这个选项哦');
                             }
