@@ -128,7 +128,7 @@ WeChat.prototype.auth = function(req,res){
 
         //4.开发者获得加密后的字符串可与signature对比，标识该请求来源于微信
         if(resultCode === signature){
-            console.log("signature"+signature);
+            // console.log("signature"+signature);
             res.send(echostr);
         }else{
             res.send('mismatch');
@@ -141,12 +141,7 @@ WeChat.prototype.auth = function(req,res){
 WeChat.prototype.automsgconfig = function(req,res){
     var that = this;
     var body = req.body;
-    console.log("aaaaa"+autoMsg);
-    console.log("jjj"+body);
-    console.log("jjj"+JSON.stringify(body));
     autoMsg = body;
-
-    console.log("aaaaa"+autoMsg);
 
     return new Promise(function(resolve,reject){
      
@@ -206,7 +201,7 @@ WeChat.prototype.getticket = function(){
             if(jsapitickt.ticket === "" || jsapitickt.expires_in < currentTime){
                 that.requestGet(url).then(function(data){
                     var result = JSON.parse(data); 
-                    console.log("jsapitickt:"+result.ticket);
+
                     if(data.indexOf("errcode") < 0){
                          jsapitickt.ticket = result.ticket;
                          jsapitickt.expires_time = new Date().getTime() + (parseInt(result.expires_in) - 200) * 1000;
@@ -228,6 +223,23 @@ WeChat.prototype.getticket = function(){
     
 }
 
+/**
+ * 获取淘宝 主播id
+ */
+WeChat.prototype.gettaobaoid = function(url){
+    
+    var that = this;
+    return new Promise(function(resolve,reject){
+    
+        that.requestGet(url).then(function(data){
+            var result = JSON.parse(data); 
+            console.log("taobao:"+result);
+                      
+        });
+   
+        
+    });
+}
 /**
  * 发消息
  */
@@ -332,7 +344,7 @@ WeChat.prototype.createMenus = function(){
  */
 WeChat.prototype.handleMsg = function(req,res){
     var buffer = [],that = this;
-console.log("handleMsg");
+
     //实例微信消息加解密
     var cryptoGraphy = new CryptoGraphy(that.config,req);
 
@@ -392,6 +404,11 @@ console.log("handleMsg");
                             var re="((http|https)://)(([a-zA-Z0-9\._-]+\.[a-zA-Z]{2,6})|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,4})*(/[a-zA-Z0-9\&%_\./-~-]*)?"; 
                             var arr=result.Content.match(re);
                             if (arr != null){
+                                console.log("arr:"+arr);
+                                that.gettaobaoid(arr[0]).then(function(data){
+                                    
+
+                                });
                                 reportMsg = msg.txtMsg(fromUser,toUser,'如果要绑定主播，请复制链接到小程序打开');
                             }else{
                                 reportMsg = msg.txtMsg(fromUser,toUser,'没有这个选项哦');
