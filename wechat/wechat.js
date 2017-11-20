@@ -256,8 +256,8 @@ WeChat.prototype.gettaobaoid = function(url){
     return new Promise(function(resolve,reject){
     
         that.requesthttpGet(url).then(function(data){
-            var result = JSON.parse(data); 
-            console.log("taobao:"+result);
+
+            console.log("taobao:"+data);
                       
         });
    
