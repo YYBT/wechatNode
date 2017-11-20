@@ -258,7 +258,9 @@ WeChat.prototype.gettaobaoid = function(url){
         that.requesthttpGet(url).then(function(data){
 
             console.log("taobao:"+data);
-                      
+            var re="broadcasterId=(.*?)&"; 
+            var arr=result.Content.match(re); 
+            console.log("re:"+arr);       
         });
    
         
