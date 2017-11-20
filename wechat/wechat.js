@@ -2,6 +2,7 @@
 
 const crypto = require('crypto'), //引入加密模块
        https = require('https'), //引入 htts 模块
+       http = require('http'), //引入 http 模块
         util = require('util'), //引入 util 工具包
           fs = require('fs'), //引入 fs 模块
       urltil = require('url'),//引入 url 模块
@@ -33,6 +34,29 @@ var WeChat = function(config){
     //设置 WeChat 对象属性 apiURL
     this.apiURL = config.apiURL;
 
+        /**
+     * 用于处理 https Get请求方法
+     * @param {String} url 请求地址 
+     */
+    this.requesthttpGet = function(url){
+        return new Promise(function(resolve,reject){
+            http.get(url,function(res){
+                var buffer = [],result = "";
+                //监听 data 事件
+                res.on('data',function(data){
+                    buffer.push(data);
+                });
+                //监听 数据传输完成事件
+                res.on('end',function(){
+                    result = Buffer.concat(buffer).toString('utf-8');
+                    //将最后结果返回
+                    resolve(result);
+                });
+            }).on('error',function(err){
+                reject(err);
+            });
+        });
+    }
     /**
      * 用于处理 https Get请求方法
      * @param {String} url 请求地址 
@@ -231,7 +255,7 @@ WeChat.prototype.gettaobaoid = function(url){
     var that = this;
     return new Promise(function(resolve,reject){
     
-        that.requestGet(url).then(function(data){
+        that.requesthttpGet(url).then(function(data){
             var result = JSON.parse(data); 
             console.log("taobao:"+result);
                       
