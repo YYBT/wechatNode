@@ -25,8 +25,7 @@ exports.picMsg = function(toUser,fromUser,picUrl,mediaId){
         xmlContent += "<FromUserName><![CDATA["+ fromUser +"]]></FromUserName>";
         xmlContent += "<CreateTime>"+ new Date().getTime() +"</CreateTime>";
         xmlContent += "<MsgType><![CDATA[image]]></MsgType>";
-        xmlContent += "<PicUrl><![CDATA["+ picUrl +"]]></PicUrl>";
-        xmlContent += "</xml>";
+        xmlContent += "<Image><MediaId><![CDATA["+ mediaId +"]]></MediaId></Image></xml>";
     return xmlContent;
 }
 /**
