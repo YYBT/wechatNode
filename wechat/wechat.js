@@ -462,6 +462,7 @@ WeChat.prototype.handleMsg = function(req,res){
                                 if(result.Content == key){
                                     flog = false;
                                     if(type == "msg"){
+                                        console.log('dd'+fromUser+'to:'+toUser);
                                         reportMsg = msg.picMsg(fromUser,toUser,'http://mmbiz.qpic.cn/mmbiz_jpg/Ec02myQzVKjHZicn50tlICAQIyZZSsaMYiaWn4N69BrlZyvTV1WnhCyrBtLkQ0jmiadE02BAv2528UgWVh0Shhr4g/0?wx_fmt=jpeg',"mlOXct8z2SSgg5QDut9VFhukGLxFQNlMI1lVSwtkv_w");
                                         // reportMsg = msg.txtMsg(fromUser,toUser,content);
                                     }else if(type == "msgpic"){
