@@ -462,7 +462,7 @@ WeChat.prototype.handleMsg = function(req,res){
                                 if(result.Content == key){
                                     flog = false;
                                     if(type == "msg"){
-                                        reportMsg = msg.picMsg(fromUser,toUser,'https://mmbiz.qpic.cn/mmbiz_png/Ec02myQzVKjHZicn50tlICAQIyZZSsaMYRhajlPIMSIHfoQAnsrAQM3ohzjibqlwc9BmVGmNqiccs0g06lpQ6tK0g/0?wx_fmt=png',"ZmdiPovFGIdCMxz1hSWjGwE1kvstIGiwSW98uRK0c-4TuZDUjWtFEAo4IRB3mKnE");
+                                        reportMsg = msg.picMsg(fromUser,toUser,'http:\/\/mmbiz.qpic.cn\/mmbiz_jpg\/Ec02myQzVKjHZicn50tlICAQIyZZSsaMYiaWn4N69BrlZyvTV1WnhCyrBtLkQ0jmiadE02BAv2528UgWVh0Shhr4g\/0?wx_fmt=jpeg',"mlOXct8z2SSgg5QDut9VFhukGLxFQNlMI1lVSwtkv_w");
                                         // reportMsg = msg.txtMsg(fromUser,toUser,content);
                                     }else if(type == "msgpic"){
                                         reportMsg = msg.graphicMsg(fromUser,toUser,content);
