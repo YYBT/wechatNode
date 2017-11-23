@@ -410,7 +410,7 @@ WeChat.prototype.handleMsg = function(req,res){
                                 case 'lianxi':
                                     //回复消息
                                     var content = "有任何意见反馈和合作意向的朋友，你可以通过以下邮箱尽情勾搭~\n";
-                                    content += "woshixuyiman@163.com\n";
+                                    content += "xym@7islandsmedia.com\n";
                                     reportMsg = msg.txtMsg(fromUser,toUser,content);
                                 break;
                             }
