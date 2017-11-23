@@ -402,7 +402,7 @@ WeChat.prototype.handleMsg = function(req,res){
                         case 'subscribe':
                             //回复消息
                             // var content = "直播这么久，为何TA这么火，而我不温不火？头号TOP给你提供各大平台直播数据分析，开启你的直播数据化时代！\n<a href='http://www.baidu.com'>立即前往查看</a>";
-                            reportMsg = msg.picMsg(fromUser,toUser,'https://mmbiz.qpic.cn/mmbiz_png/Ec02myQzVKjHZicn50tlICAQIyZZSsaMYRhajlPIMSIHfoQAnsrAQM3ohzjibqlwc9BmVGmNqiccs0g06lpQ6tK0g/0?wx_fmt=png',100005234);
+                            reportMsg = msg.picMsg(fromUser,toUser,'https://mmbiz.qpic.cn/mmbiz_png/Ec02myQzVKjHZicn50tlICAQIyZZSsaMYRhajlPIMSIHfoQAnsrAQM3ohzjibqlwc9BmVGmNqiccs0g06lpQ6tK0g/0?wx_fmt=png',"ZmdiPovFGIdCMxz1hSWjGwE1kvstIGiwSW98uRK0c-4TuZDUjWtFEAo4IRB3mKnE");
                         break;
                         case 'click':
 
