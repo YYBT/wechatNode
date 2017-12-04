@@ -474,7 +474,7 @@ WeChat.prototype.handleMsg = function(req,res){
                                 var url = util.format(that.apiURL.bindOfficialAccount,'http://121.41.18.217:9191',data.openId,data.unionid);
             
                                 that.requestHttpPost(url,'').then(function(data){
-                                    console.log(JSON.stringify(data));
+                                    console.log(JSON.stringify(data),url);
                                 });
                             });
                         break;
