@@ -125,7 +125,7 @@ var WeChat = function(config){
             req.end();
         });
     }
-}
+
     /**
      * 用于处理 https Post请求方法
      * @param {String} url  请求地址
