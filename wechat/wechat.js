@@ -35,7 +35,7 @@ var WeChat = function(config){
     this.apiURL = config.apiURL;
 
         /**
-     * 用于处理 https Get请求方法
+     * 用于处理 http Get请求方法
      * @param {String} url 请求地址 
      */
     this.requesthttpGet = function(url){
@@ -80,7 +80,52 @@ var WeChat = function(config){
             });
         });
     }
-
+ /**
+     * 用于处理 http Post请求方法
+     * @param {String} url  请求地址
+     * @param {JSON} data 提交的数据
+     */
+    this.requestHttpPost = function(url,data){
+        return new Promise(function(resolve,reject){
+            //解析 url 地址
+            var urlData = urltil.parse(url);
+            //设置 https.request  options 传入的参数对象
+            var options={
+                //目标主机地址
+                hostname: urlData.hostname, 
+                //目标地址 
+                path: urlData.path,
+                //请求方法
+                method: 'POST',
+                //头部协议
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'Content-Length': Buffer.byteLength(data,'utf-8')
+                }
+            };
+            var req = http.request(options,function(res){
+                var buffer = [],result = '';
+                //用于监听 data 事件 接收数据
+                res.on('data',function(data){
+                    buffer.push(data);
+                });
+                 //用于监听 end 事件 完成数据的接收
+                res.on('end',function(){
+                    result = Buffer.concat(buffer).toString('utf-8');
+                    resolve(result);
+                })
+            })
+            //监听错误事件
+            .on('error',function(err){
+                console.log(err);
+                reject(err);
+            });
+            //传入数据
+            req.write(data);
+            req.end();
+        });
+    }
+}
     /**
      * 用于处理 https Post请求方法
      * @param {String} url  请求地址
@@ -425,6 +470,12 @@ WeChat.prototype.handleMsg = function(req,res){
                             console.log(toUser);
                             that.getUserInfo(fromUser).then(function(data){
                                 console.log(JSON.stringify(data));
+                                //格式化请求地址
+                                var url = util.format(that.apiURL.bindOfficialAccount,'http://121.41.18.217:9191',data.openId,data.unionid);
+            
+                                that.requestHttpPost(url,'').then(function(data){
+                                    console.log(JSON.stringify(data));
+                                });
                             });
                         break;
                         case 'click':
