@@ -89,7 +89,7 @@ var WeChat = function(config){
         return new Promise(function(resolve,reject){
             //解析 url 地址
             var urlData = urltil.parse(url);
-            //设置 https.request  options 传入的参数对象
+            //设置 http.request  options 传入的参数对象
             var options={
                 //目标主机地址
                 hostname: urlData.hostname, 
@@ -373,6 +373,20 @@ WeChat.prototype.wechatconfig = function(req,res){
 /**
  * 获取用户信息
  */
+WeChat.prototype.test = function(){
+    var that = this;
+    return new Promise(function(resolve,reject){
+        var url = "http://121.41.18.217:9191/api/user/bindOfficialAccount?openId=o-7bewsin43JysZLaJ8RIq0IRfNU&unionId=ohjTjw5NBaW-OcSF-eJNSWrm6yCw";
+        
+                            that.requesthttpGet(url).then(function(data){
+                                resolve(data);
+                            });
+    });
+
+}
+/**
+ * 获取用户信息
+ */
 WeChat.prototype.getUserInfo = function(openId){
     var that = this;
     return new Promise(function(resolve,reject){
@@ -474,7 +488,7 @@ WeChat.prototype.handleMsg = function(req,res){
                                 //格式化请求地址
                                 var url = util.format(that.apiURL.bindOfficialAccount,'http://121.41.18.217:9191',userdata.openid,userdata.unionid);
             
-                                that.requestHttpPost(url,'').then(function(data){
+                                that.requesthttpGet(url,'').then(function(data){
                                     console.log(JSON.stringify(data),url);
                                 });
                             });
