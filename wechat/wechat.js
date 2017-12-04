@@ -470,8 +470,9 @@ WeChat.prototype.handleMsg = function(req,res){
                             console.log(toUser);
                             that.getUserInfo(fromUser).then(function(data){
                                 console.log(JSON.stringify(data));
+                                var userdata = JSON.parse(data);
                                 //格式化请求地址
-                                var url = util.format(that.apiURL.bindOfficialAccount,'http://121.41.18.217:9191',data.openId,data.unionid);
+                                var url = util.format(that.apiURL.bindOfficialAccount,'http://121.41.18.217:9191',userdata.openId,userdata.unionid);
             
                                 that.requestHttpPost(url,'').then(function(data){
                                     console.log(JSON.stringify(data),url);
