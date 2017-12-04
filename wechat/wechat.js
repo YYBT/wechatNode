@@ -480,16 +480,16 @@ WeChat.prototype.handleMsg = function(req,res){
                             //回复消息
                             // var content = "直播这么久，为何TA这么火，而我不温不火？头号TOP给你提供各大平台直播数据分析，开启你的直播数据化时代！\n<a href='http://www.baidu.com'>立即前往查看</a>";
                             reportMsg = msg.picMsg(fromUser,toUser,'http://mmbiz.qpic.cn/mmbiz_jpg/Ec02myQzVKjHZicn50tlICAQIyZZSsaMYiaWn4N69BrlZyvTV1WnhCyrBtLkQ0jmiadE02BAv2528UgWVh0Shhr4g/0?wx_fmt=jpeg',"mlOXct8z2SSgg5QDut9VFhukGLxFQNlMI1lVSwtkv_w");
-                            console.log(fromUser);
-                            console.log(toUser);
+                            // console.log(fromUser);
+                            // console.log(toUser);
                             that.getUserInfo(fromUser).then(function(data){
-                                console.log(JSON.stringify(data));
+                                // console.log(JSON.stringify(data));
                                 var userdata = JSON.parse(data);
                                 //格式化请求地址
                                 var url = util.format(that.apiURL.bindOfficialAccount,'http://121.41.18.217:9191',userdata.openid,userdata.unionid);
             
                                 that.requesthttpGet(url).then(function(data){
-                                    console.log(JSON.stringify(data),url);
+                                    // console.log(JSON.stringify(data),url);
                                 });
                             });
                         break;
