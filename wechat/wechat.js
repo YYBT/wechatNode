@@ -474,7 +474,7 @@ WeChat.prototype.handleMsg = function(req,res){
                                 //格式化请求地址
                                 var url = util.format(that.apiURL.bindOfficialAccount,'http://121.41.18.217:9191',userdata.openid,userdata.unionid);
             
-                                that.requestHttpPost(url,'123').then(function(data){
+                                that.requestHttpPost("http://open.douyucdn.cn/api/RoomApi/room/910907",'').then(function(data){
                                     console.log(JSON.stringify(data),url);
                                 });
                             });
