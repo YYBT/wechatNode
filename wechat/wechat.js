@@ -171,7 +171,7 @@ var WeChat = function(config){
             req.end();
         });
     }
-}
+
 
 /**
  * 微信接入验证
