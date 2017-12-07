@@ -17,7 +17,7 @@ app.use(bodyParser.json({ type: 'application/*+json' }));
 
 
 var wechatApp = new wechat(config); //实例wechat 模块
-var screenshotsApp = new screenshots(config); //实例wechat 模块
+// var screenshotsApp = new screenshots(config); //实例wechat 模块
 
 //用于处理所有进入 3000 端口 get 的连接请求
 app.get('/',function(req,res){
