@@ -1,5 +1,6 @@
 const express = require('express'), //express 框架 
       wechat  = require('./wechat/wechat'), 
+      screenshots  = require('./wechat/screenshots'), 
       config = require('./config');//引入配置文件
       bodyParser = require('body-parser')
 
@@ -16,6 +17,7 @@ app.use(bodyParser.json({ type: 'application/*+json' }));
 
 
 var wechatApp = new wechat(config); //实例wechat 模块
+var screenshotsApp = new screenshots(config); //实例wechat 模块
 
 //用于处理所有进入 3000 端口 get 的连接请求
 app.get('/',function(req,res){
@@ -76,9 +78,10 @@ app.post('/automsgconfig',function(req,res){
     });
 
 //用于发消息 GET
-app.get('/test',function(req,res){
+app.post('/screenshots.png',function(req,res){
     
-         wechatApp.test().then(function(data){
+    screenshotsApp.xxxx(req,res).then(function(data){
+        res.setHeader('Content-Type','image/png');
              res.send(data);
          }); 
  });
