@@ -2,7 +2,7 @@
 
 const fs = require('fs') //引入 fs 模块
 
-    // phantom = require('phantom')
+const phantom = require('phantom')
 
 // import fs from 'fs'
 
