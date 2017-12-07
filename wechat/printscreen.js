@@ -4,7 +4,7 @@
 
 // var autoMsg  = require('./autoMsg');
 
-const phantom = require('phantom');
+// const phantom = require('phantom');
 
 var ScreenShots = function(){
 }
