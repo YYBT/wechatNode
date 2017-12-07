@@ -1,6 +1,6 @@
 const express = require('express'), //express 框架 
       wechat  = require('./wechat/wechat'), 
-    //   screenshots  = require('./wechat/screenshots.js'), 
+      screenshots  = require('./wechat/printscreen'), 
       config = require('./config');//引入配置文件
       bodyParser = require('body-parser')
 
