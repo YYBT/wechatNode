@@ -1,6 +1,6 @@
 const express = require('express'), //express 框架 
       wechat  = require('./wechat/wechat'), 
-      screenshots  = require('./wechat/screenshots.js'), 
+    //   screenshots  = require('./wechat/screenshots.js'), 
       config = require('./config');//引入配置文件
       bodyParser = require('body-parser')
 
@@ -78,13 +78,13 @@ app.post('/automsgconfig',function(req,res){
     });
 
 //用于发消息 GET
-app.post('/screenshots.png',function(req,res){
+// app.post('/screenshots.png',function(req,res){
     
-    screenshotsApp.xxxx(req,res).then(function(data){
-        res.setHeader('Content-Type','image/png');
-             res.send(data);
-         }); 
- });
+//     screenshotsApp.xxxx(req,res).then(function(data){
+//         res.setHeader('Content-Type','image/png');
+//              res.send(data);
+//          }); 
+//  });
 
 //监听3000端口
 app.listen(8222);
