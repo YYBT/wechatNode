@@ -15,7 +15,7 @@ var ScreenShots = function(){
 ScreenShots.prototype.xxxx = function(req,res){
     var that = this;
     var body = req.body;
-    console.log(body);
+    // console.log(body);
     return new Promise(function(resolve,reject){
      
         // resolve('123');
@@ -33,12 +33,12 @@ ScreenShots.prototype.xxxx = function(req,res){
 
         fs.readFile('./'+imageName, function (err, data) {
             if (err)    return console.log(err);
-                console.log('异步读取：' + data.toString());
+                // console.log('异步读取：' + data.toString());
                 resolve(data);
 
             fs.unlink('./'+imageName, function (err) {
                      if (err) return console.log(err);
-                      console.log('文件删除成功');
+                    //   console.log('文件删除成功');
             })
         })
         await instance.exit();
