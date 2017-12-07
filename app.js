@@ -17,7 +17,7 @@ app.use(bodyParser.json({ type: 'application/*+json' }));
 
 
 var wechatApp = new wechat(config); //实例wechat 模块
-// var screenshotsApp = new screenshots(config); //实例wechat 模块
+var screenshotsApp = new screenshots(); //实例wechat 模块
 
 //用于处理所有进入 3000 端口 get 的连接请求
 app.get('/',function(req,res){
@@ -78,13 +78,13 @@ app.post('/automsgconfig',function(req,res){
     });
 
 //用于发消息 GET
-// app.post('/screenshots.png',function(req,res){
+app.post('/screenshots.png',function(req,res){
     
-//     screenshotsApp.xxxx(req,res).then(function(data){
-//         res.setHeader('Content-Type','image/png');
-//              res.send(data);
-//          }); 
-//  });
+    screenshotsApp.xxxx(req,res).then(function(data){
+        res.setHeader('Content-Type','image/png');
+             res.send(data);
+         }); 
+ });
 
 //监听3000端口
 app.listen(8222);
