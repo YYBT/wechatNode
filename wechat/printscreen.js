@@ -1,8 +1,6 @@
-// 'use strict' //设置为严格模式
+'use strict' //设置为严格模式
 
 // const fs = require('fs'), //引入 fs 模块
-
-// var autoMsg  = require('./autoMsg');
 
 // const phantom = require('phantom');
 
@@ -16,9 +14,9 @@ ScreenShots.prototype.xxxx = function(req,res){
     // var that = this;
     // var body = req.body;
     // console.log(body);
-    // return new Promise(function(resolve,reject){
+    return new Promise(function(resolve,reject){
      
-         
+        resolve('123');
     // (async function() {
     //     const instance = await phantom.create();
     //     const page = await instance.createPage();
@@ -47,7 +45,7 @@ ScreenShots.prototype.xxxx = function(req,res){
         
       
     //   })();
-    // });
+    });
 }
 
 //暴露可供外部访问的接口
