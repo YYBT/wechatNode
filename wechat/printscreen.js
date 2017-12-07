@@ -6,10 +6,6 @@ var autoMsg  = require('./autoMsg');
 
 const phantom = require('phantom');
 
-/**
- * 构建 WeChat 对象 即 js中 函数就是对象
- * @param {JSON} config 微信配置文件 
- */
 var ScreenShots = function(){
 }
 
@@ -17,41 +13,41 @@ var ScreenShots = function(){
  * 自动回复 配置
  */
 ScreenShots.prototype.xxxx = function(req,res){
-    var that = this;
-    var body = req.body;
-    console.log(body);
-    return new Promise(function(resolve,reject){
+    // var that = this;
+    // var body = req.body;
+    // console.log(body);
+    // return new Promise(function(resolve,reject){
      
          
-    (async function() {
-        const instance = await phantom.create();
-        const page = await instance.createPage();
+    // (async function() {
+    //     const instance = await phantom.create();
+    //     const page = await instance.createPage();
 
-        const status = await page.open(body.url);
+    //     const status = await page.open(body.url);
 
-        var imageName = new Date().getTime()+'.png';
+    //     var imageName = new Date().getTime()+'.png';
 
-        await page.render(imageName);
-        if (status == 'success'){
-            console.log(status);
-            await instance.exit();
-        }
-        fs.readFile('./'+imageName, function (err, data) {
-            if (err)    return console.log(err);
-                // console.log('异步读取：' + data.toString());
-                resolve(data);
+    //     await page.render(imageName);
+    //     if (status == 'success'){
+    //         console.log(status);
+    //         await instance.exit();
+    //     }
+    //     fs.readFile('./'+imageName, function (err, data) {
+    //         if (err)    return console.log(err);
+    //             // console.log('异步读取：' + data.toString());
+    //             resolve(data);
 
-            fs.unlink('./'+imageName, function (err) {
-                     if (err) return console.log(err);
-                      console.log('文件删除成功');
-            })
-        })
-      //   const content = await page.property('content');
-      //   console.log(content);
+    //         fs.unlink('./'+imageName, function (err) {
+    //                  if (err) return console.log(err);
+    //                   console.log('文件删除成功');
+    //         })
+    //     })
+    //   //   const content = await page.property('content');
+    //   //   console.log(content);
         
       
-      })();
-    });
+    //   })();
+    // });
 }
 
 //暴露可供外部访问的接口
