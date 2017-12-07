@@ -2,7 +2,7 @@
 
 const fs = require('fs'), //引入 fs 模块
 
-var autoMsg  = require('./autoMsg');
+// var autoMsg  = require('./autoMsg');
 
 // const phantom = require('phantom');
 
