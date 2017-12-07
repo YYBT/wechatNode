@@ -18,7 +18,7 @@ ScreenShots.prototype.xxxx = function(req,res){
     // console.log(body);
     return new Promise(function(resolve,reject){
      
-        // resolve('123');
+        resolve('123');
     (async function() {
         const instance = await phantom.create();
         const page = await instance.createPage();
