@@ -28,13 +28,12 @@ ScreenShots.prototype.xxxx = function(req,res){
         var imageName = new Date().getTime()+'.png';
 
         await page.render(imageName);
-        if (status == 'success'){
-            console.log(status);
-            await instance.exit();
-        }
+
+        console.log(status);
+
         fs.readFile('./'+imageName, function (err, data) {
             if (err)    return console.log(err);
-                // console.log('异步读取：' + data.toString());
+                console.log('异步读取：' + data.toString());
                 resolve(data);
 
             fs.unlink('./'+imageName, function (err) {
@@ -42,6 +41,7 @@ ScreenShots.prototype.xxxx = function(req,res){
                       console.log('文件删除成功');
             })
         })
+        await instance.exit();
       //   const content = await page.property('content');
       //   console.log(content);
         
