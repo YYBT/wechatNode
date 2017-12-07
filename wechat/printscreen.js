@@ -20,7 +20,7 @@ ScreenShots.prototype.xxxx = function(req,res){
      
         // resolve('123');
     (async function() {
-        const instance = await phantom.create();
+        const instance = await phantom.create(['--ignore-ssl-errors=true']);
         const page = await instance.createPage();
 
         const status = await page.open(body.url);
