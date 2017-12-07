@@ -15,7 +15,7 @@ var ScreenShots = function(){
 ScreenShots.prototype.xxxx = function(req,res){
     var that = this;
     var body = req.body;
-    // console.log(body);
+    console.log(body);
     return new Promise(function(resolve,reject){
      
         // resolve('123');
