@@ -1,6 +1,6 @@
 'use strict' //设置为严格模式
 
-const fs = require('fs'), //引入 fs 模块
+// const fs = require('fs'), //引入 fs 模块
 
 // var autoMsg  = require('./autoMsg');
 
