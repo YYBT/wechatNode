@@ -376,7 +376,7 @@ WeChat.prototype.wechatconfig = function(req,res){
 WeChat.prototype.test = function(){
     var that = this;
     return new Promise(function(resolve,reject){
-        var url = "http://121.41.18.217:9191/api/user/bindOfficialAccount?openId=o-7bewsin43JysZLaJ8RIq0IRfNU&unionId=ohjTjw5NBaW-OcSF-eJNSWrm6yCw";
+        var url = "https://api.touhaozhubo.com/api/user/bindOfficialAccount?openId=o-7bewsin43JysZLaJ8RIq0IRfNU&unionId=ohjTjw5NBaW-OcSF-eJNSWrm6yCw";
         
                             that.requesthttpGet(url).then(function(data){
                                 resolve(data);

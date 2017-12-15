@@ -6,6 +6,10 @@ const express = require('express'), //express 框架
 
 var app = express();//实例express框架
 
+
+const path = require('path');
+app.use(express.static(path.join(__dirname,'html/images')))
+
 // create application/json parser
 var jsonParser = bodyParser.json();
 
@@ -85,6 +89,8 @@ app.post('/screenshots.png',function(req,res){
              res.send(data);
          }); 
  });
-
+ app.get('/haha.html', function (req, res) {
+    res.sendfile(__dirname + '/html/haha.html');
+  });
 //监听3000端口
 app.listen(8222);
