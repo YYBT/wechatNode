@@ -12,16 +12,13 @@
         <div><img src="/wechatgz/timg.gif" width="100%"/></div>
     </body>
     <script type="text/javascript">
-     var dzb = "info={'FullName':'王继军','Company':'上海天正','Address':'田林路388号'}";  
-    var link = location.href;
-    alert(link);
-    var data = {'url' : 'https://api.touhaozhubo.com/wechatgz/haha.html?from=singlemessage&isappinstalled=0' };
-
+       
     var xhr3 = new XMLHttpRequest();
     xhr3.webSecutiry =false;
     xhr3.localToRemoteUrlAccessEnabled =true;
     xhr3.open("POST", "https://api.touhaozhubo.com/wechatgz/wechatconfig", true);
-    xhr3.setRequestHeader("Content-Type","application/x-www-form-urlencoded");                                                                
+    xhr3.setRequestHeader("Content-Type","application/json; charset=utf-8");    
+                                                         
     xhr3.onreadystatechange = function () {
     if (xhr3.readyState == 4) {
     if (xhr3.status == 200) {
@@ -55,6 +52,9 @@
     }                              
     };
 
+    var link = location.href;
+    alert(link);
+    var  postbody = '{\"url\":\"'+link+'\"}';
 
     xhr3.send('{"url":"https://api.touhaozhubo.com/wechatgz/haha.html?from=singlemessage&isappinstalled=0"}');
 
