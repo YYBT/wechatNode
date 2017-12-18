@@ -24,8 +24,7 @@
     if (xhr3.status == 200) {
     // console.log('json:'+xhr3.responseText);
     var json = JSON.parse(xhr3.responseText);
-    console.log("ddd"+json);
-    alert(xhr3.responseText);
+
     wx.config({
         debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
         appId: 'wx7102a388786d4b3b', // 必填，公众号的唯一标识
@@ -34,8 +33,8 @@
         signature: json.signature,// 必填，签名，见附录1
         jsApiList: ['getLocation'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
         });
-
-        wx.getLocation({
+        window.setTimeout(function () {
+            wx.getLocation({
         type: 'wgs84', // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02'
         success: function (res) {
         console.log("ddd"+res);
@@ -47,13 +46,15 @@
 
             }
         });
+        }, 5000);
+     
 
     }  
     }                              
     };
 
     var link = location.href;
-    alert(link);
+
     var  postbody = '{\"url\":\"'+link+'\"}';
 
     xhr3.send(postbody);
