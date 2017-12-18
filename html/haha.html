@@ -31,15 +31,10 @@
         timestamp: json.timestamp, // 必填，生成签名的时间戳
         nonceStr: json.nonceStr, // 必填，生成签名的随机串
         signature: json.signature,// 必填，签名，见附录1
-        jsApiList: ["getLocation","getNetworkType","hideAllNonBaseMenuItem"] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+        jsApiList: ["getLocation","hideAllNonBaseMenuItem"] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
         });
         wx.hideAllNonBaseMenuItem();
-        wx.getNetworkType({
-success: function (res) {
-    console.log("ddd"+res);
-var networkType = res.networkType; // 返回网络类型2g，3g，4g，wifi
-}
-});
+
         alert("ddd");
         wx.getLocation({
         type: 'wgs84', // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02'
