@@ -360,7 +360,7 @@ WeChat.prototype.wechatconfig = function(req,res){
 
     var that = this;
     var body = req.body;
-    console.log("bbbbb"+JSON.stringify(bogy));
+    console.log("bbbbb"+JSON.stringify(body));
     return new Promise(function(resolve,reject){
         that.getticket().then(function(data){
             
