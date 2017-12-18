@@ -53,10 +53,10 @@
 
     var link = location.href;
     alert(link);
-    var  postbody = '{\"url\":\"'+link+'\"}';
-    alert(postbody);
+    // var  postbody = '{\"url\":\"'+link+'\"}';
+    // alert(postbody);
     // console.log('[top]postbody:'+postbody);
-    xhr3.send(postbody);
+    xhr3.send("url="+link);
 
 
  
