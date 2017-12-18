@@ -17,7 +17,7 @@
     xhr3.webSecutiry =false;
     xhr3.localToRemoteUrlAccessEnabled =true;
     xhr3.open("POST", "https://api.touhaozhubo.com/wechatgz/wechatconfig", true);
-    xhr3.setRequestHeader("Content-Type","application/x-www-form-urlencoded");                                                                
+    xhr3.setRequestHeader("Content-Type","application/json");                                                                
     xhr3.onreadystatechange = function () {
     if (xhr3.readyState == 4) {
     if (xhr3.status == 200) {
