@@ -13,10 +13,15 @@
     </body>
     <script type="text/javascript">
        
+    var link = location.href;
+    alert(link);
+    var data = {'url' : link };
+
     var xhr3 = new XMLHttpRequest();
     xhr3.webSecutiry =false;
     xhr3.localToRemoteUrlAccessEnabled =true;
     xhr3.open("POST", "https://api.touhaozhubo.com/wechatgz/wechatconfig", true);
+    xmlhttp.setRequestHeader("Content-Length",data.lenght);
     xhr3.setRequestHeader("Content-Type","application/x-www-form-urlencoded");                                                                
     xhr3.onreadystatechange = function () {
     if (xhr3.readyState == 4) {
@@ -51,13 +56,7 @@
     }                              
     };
 
-    var link = location.href;
-    alert(link);
-    // var  postbody = '{\"url\":\"'+link+'\"}';
-    // alert(postbody);
-    // console.log('[top]postbody:'+postbody);
-    // 设置POST请求的请求头  
-    var data = {url : link };
+
     xhr3.send(data);
 
     </script>
