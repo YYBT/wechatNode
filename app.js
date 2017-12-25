@@ -92,5 +92,12 @@ app.post('/screenshots.png',function(req,res){
  app.get('/haha.html', function (req, res) {
     res.sendfile(__dirname + '/html/haha.html');
   });
+  //用于发消息 GET
+app.get('/testget',function(req,res){
+   
+    console.log(req);
+        res.send('ok');
+   
+});
 //监听3000端口
 app.listen(8222);
