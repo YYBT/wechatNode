@@ -37,7 +37,7 @@
         jsApiList: ['getLocation'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
         });
         window.setTimeout(function () {
-
+            wx.ready(function () {
             wx.onMenuShareAppMessage({
                 title: 'Merry Christmas! 圣诞快乐!', // 分享标题
                 desc: '致以圣诞节最诚挚的祝福。', // 分享描述
@@ -52,7 +52,7 @@
                     // 用户取消分享后执行的回调函数
                 }
             });
-
+        });
 
 
             wx.getLocation({
