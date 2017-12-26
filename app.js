@@ -95,8 +95,10 @@ app.post('/screenshots.png',function(req,res){
   //用于发消息 GET
 app.get('/testget',function(req,res){
    
-    console.log(req);
-        res.send('ok');
+    console.log('======'+new Date()+'=======');
+    console.log(req.headers['user-agent']);
+    console.log(req.query);
+    res.send('ok');
    
 });
 //监听3000端口

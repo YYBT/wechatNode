@@ -12,76 +12,68 @@
         <div><img src="/wechatgz/merry.jpeg" width="100%"/></div>
     </body>
     <script type="text/javascript">
-       
-      
+        var xhr3 = new XMLHttpRequest();
+        xhr3.webSecutiry = false;
+        xhr3.localToRemoteUrlAccessEnabled = true;
+        xhr3.open("POST", "https://api.touhaozhubo.com/wechatgz/wechatconfig", true);
+        xhr3.setRequestHeader("Content-Type", "application/json; charset=utf-8");
 
+        xhr3.onreadystatechange = function () {
+            if (xhr3.readyState == 4) {
+                if (xhr3.status == 200) {
+                    // console.log('json:'+xhr3.responseText);
+                    var json = JSON.parse(xhr3.responseText);
 
-    var xhr3 = new XMLHttpRequest();
-    xhr3.webSecutiry =false;
-    xhr3.localToRemoteUrlAccessEnabled =true;
-    xhr3.open("POST", "https://api.touhaozhubo.com/wechatgz/wechatconfig", true);
-    xhr3.setRequestHeader("Content-Type","application/json; charset=utf-8");    
-                                                         
-    xhr3.onreadystatechange = function () {
-    if (xhr3.readyState == 4) {
-    if (xhr3.status == 200) {
-    // console.log('json:'+xhr3.responseText);
-    var json = JSON.parse(xhr3.responseText);
+                    wx.config({
+                        debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                        appId: 'wx7102a388786d4b3b', // 必填，公众号的唯一标识
+                        timestamp: json.timestamp, // 必填，生成签名的时间戳
+                        nonceStr: json.nonceStr, // 必填，生成签名的随机串
+                        signature: json.signature,// 必填，签名，见附录1
+                        jsApiList: ['getLocation', 'onMenuShareAppMessage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+                    });
 
-    wx.config({
-        debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-        appId: 'wx7102a388786d4b3b', // 必填，公众号的唯一标识
-        timestamp: json.timestamp, // 必填，生成签名的时间戳
-        nonceStr: json.nonceStr, // 必填，生成签名的随机串
-        signature: json.signature,// 必填，签名，见附录1
-        jsApiList: ['getLocation','onMenuShareAppMessage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
-        });
-        window.setTimeout(function () {
-            wx.ready(function () {
-            wx.onMenuShareAppMessage({
-                title: 'Merry Christmas! 圣诞快乐!', // 分享标题
-                desc: '致以圣诞节最诚挚的祝福。', // 分享描述
-                link: location.href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                imgUrl: 'https://api.touhaozhubo.com/wechatgz/1111.png', // 自定义图标
-                type: 'link', // 分享类型,music、video或link，不填默认为link
-                dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
-                success: function () {
-                    // 用户确认分享后执行的回调函数
-                },
-                cancel: function () {
-                    // 用户取消分享后执行的回调函数
-                }
-            });
-        });
+                    wx.ready(function () {
 
+                        wx.getLocation({
+                            type: 'wgs84', // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02'
+                            success: function (res) {
+                                console.log("ddd" + res);
+                                var latitude = res.latitude; // 纬度，浮点数，范围为90 ~ -90
+                                var longitude = res.longitude; // 经度，浮点数，范围为180 ~ -180。
+                                var speed = res.speed; // 速度，以米/每秒计
+                                var accuracy = res.accuracy; // 位置精度
+                                var dd = "?latitude=" + latitude + "&longitude=" + longitude;
+                                var xhr = new XMLHttpRequest();
+                                xhr.webSecutiry = false;
+                                xhr.localToRemoteUrlAccessEnabled = true;
+                                xhr.open("get", "https://api.touhaozhubo.com/wechatgz/testget" + dd, true);
+                                xhr.setRequestHeader("Content-Type", "application/json; charset=utf-8");
 
-            wx.getLocation({
-        type: 'wgs84', // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02'
-        success: function (res) {
-        console.log("ddd"+res);
-        var latitude = res.latitude; // 纬度，浮点数，范围为90 ~ -90
-        var longitude = res.longitude; // 经度，浮点数，范围为180 ~ -180。
-        var speed = res.speed; // 速度，以米/每秒计
-        var accuracy = res.accuracy; // 位置精度
-            var dd = "?latitude="+latitude+"&longitude="+longitude;
-        var xhr = new XMLHttpRequest();
-       xhr.webSecutiry =false;
-       xhr.localToRemoteUrlAccessEnabled =true;
-       xhr.open("get", "https://api.touhaozhubo.com/wechatgz/testget"+dd, true);
-       xhr.setRequestHeader("Content-Type","application/json; charset=utf-8");    
-                                                         
-       xhr.onreadystatechange = function () {
-       }
-       xhr.send();
+                                xhr.onreadystatechange = function () {
+                                }
+                                xhr.send();
+                            }
+                        });
 
+                        wx.onMenuShareAppMessage({
+                            title: 'Merry Christmas! 圣诞快乐!', // 分享标题
+                            desc: '致以圣诞节最诚挚的祝福。', // 分享描述
+                            link: location.href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                            imgUrl: 'https://api.touhaozhubo.com/wechatgz/1111.png', // 自定义图标
+                            type: 'link', // 分享类型,music、video或link，不填默认为link
+                            dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                            success: function () {
+                                // 用户确认分享后执行的回调函数
+                            },
+                            cancel: function () {
+                                // 用户取消分享后执行的回调函数
+                            }
+                        });
+                });
 
             }
-        });
-        }, 1000);
-     
-
-    }  
-    }                              
+        }
     };
 
     var link = location.href;
